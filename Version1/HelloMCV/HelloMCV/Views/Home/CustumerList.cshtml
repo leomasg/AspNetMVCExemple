@@ -1,0 +1,42 @@
+﻿@model IEnumerable<HelloMCV.Models.Customer>
+
+@{
+    ViewBag.Title = "CustumerList";
+}
+
+<h2>CustumerList</h2>
+
+<p>
+    @Html.ActionLink("Create New", "AddCustumer") |
+    @Html.ActionLink("Back to home", "Index")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telephone)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telephone)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditCustumer", new { id = item.Id }) |
+                @Html.ActionLink("Details", "ViewCustumer", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "DeleteCustoumer", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
